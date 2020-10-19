@@ -6,23 +6,61 @@
 
 class Empregado {
 	
-  public:
+    private:
+    std::string nome;
     double salarioHora;  
     double quotaMensalVendas;  
-
+    
+    public:
+	Empregado (std::string n, double sh, double qMV){
+		
+		nome = n;
+		salarioHora = sh;
+		quotaMensalVendas = qMV;
+		
+	}
+	
+	Empregado (std::string n, double sh){
+		
+		nome = n;
+		salarioHora = sh;
+		
+	}
 
     double pagamentoMes(double horasTrabalhadas) {
  
       double t = horasTrabalhadas;
 	  
-	  //Cálculo de hora extra (+50% se horasTrabalhadas > 8)
       if (horasTrabalhadas > 8) {
         double x = horasTrabalhadas - 8;
         t += x / 2;
       }
 	  return t * salarioHora;
     }
+    
+    	std::string getnome(){
+		return nome;
+	}
+    
+    	double getsh(){
+		return salarioHora;
+	}
 	
+	  	double getqMV(){
+		return quotaMensalVendas;
+	}
+	
+		void setnome(std::string newname){
+		nome = newname;
+	}
+	
+		void setsh( double newsh){
+		salarioHora = newsh;
+	}
+	
+		void setqMV( double newqMV){
+		quotaMensalVendas = newqMV;
+	}
 };
 
 #endif
